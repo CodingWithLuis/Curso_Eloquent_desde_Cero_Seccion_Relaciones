@@ -20,6 +20,15 @@
                                 <th>
                                     Email
                                 </th>
+                                <th>
+                                    Telefono 1
+                                </th>
+                                <th>
+                                    Telefono 2
+                                </th>
+                                <th>
+                                    Direccion 1
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,6 +42,15 @@
                                 </td>
                                 <td>
                                     {{ $user->email}}
+                                </td>
+                                <td>
+                                    {{ $user->profile->phone_number1}}
+                                </td>
+                                <td>
+                                    {{ $user->profile->phone_number2}}
+                                </td>
+                                <td>
+                                    {{ $user->profile->address1}}
                                 </td>
                             </tr>
                             @endforeach

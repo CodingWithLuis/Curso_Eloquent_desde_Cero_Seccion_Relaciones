@@ -21,15 +21,6 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-
-            //Extra Columns
-            $table->string('phone_number1')->nullable();
-            $table->string('phone_number2')->nullable();
-            $table->string('address1')->nullable();
-            $table->string('address2')->nullable();
-            $table->string('facebook_profile')->nullable();
-            $table->string('instagram_profile')->nullable();
-            $table->string('twitter_profile')->nullable();
         });
     }
 

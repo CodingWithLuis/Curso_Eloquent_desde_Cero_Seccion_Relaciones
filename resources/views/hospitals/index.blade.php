@@ -15,10 +15,13 @@
                                     ID
                                 </th>
                                 <th>
-                                    Nombre
+                                    Hospital
                                 </th>
                                 <th>
-                                    Doctores
+                                    Ultimo Doctor Registrado
+                                </th>
+                                <th>
+                                    Primer Doctor Registrado
                                 </th>
                             </tr>
                         </thead>
@@ -32,9 +35,10 @@
                                     {{ $hospital->name}}
                                 </td>
                                 <td>
-                                    @foreach ($hospital->doctors as $doctor)
-                                    <span class="badge bg-primary">{{ $doctor->name }}</span>
-                                    @endforeach
+                                    <span class="badge bg-primary">{{ $hospital->latestDoctor->name }}</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">{{ $hospital->oldestDoctor->name }}</span>
                                 </td>
                             </tr>
                             @endforeach

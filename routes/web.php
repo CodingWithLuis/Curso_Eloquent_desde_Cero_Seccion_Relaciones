@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +25,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('users', UserController::class);
+Route::resource('doctors', DoctorController::class)->only('index');
+Route::resource('hospitals', HospitalController::class)->only('index');

@@ -29,6 +29,12 @@
                 <a class="navbar-brand" href="{{ route('users.index') }}">
                     Usuarios
                 </a>
+                <a class="navbar-brand" href="{{ route('doctors.index') }}">
+                    Doctores
+                </a>
+                <a class="navbar-brand" href="{{ route('hospitals.index') }}">
+                    Hospitales
+                </a>
                 @endauth
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

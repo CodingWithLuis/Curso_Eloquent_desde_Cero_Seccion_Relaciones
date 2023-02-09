@@ -25,5 +25,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('users', UserController::class);
-Route::resource('doctors', DoctorController::class)->only('index');
+Route::resource('doctors', DoctorController::class)->except('show', 'destroy');
 Route::resource('hospitals', HospitalController::class)->only('index');

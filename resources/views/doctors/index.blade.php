@@ -5,9 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">Listado de Doctores</div>
 
                 <div class="card-body">
+
+                    <a href="{{ route('doctors.create') }}" class="btn btn-primary mt-3 mb-3">Nuevo Doctor</a>
+
                     <table class=" table table-bordered table-striped table-hover datatable datatable-User">
                         <thead>
                             <tr>
@@ -25,6 +28,9 @@
                                 </th>
                                 <th>
                                     Hospital
+                                </th>
+                                <th>
+                                    Acciones
                                 </th>
                             </tr>
                         </thead>
@@ -45,6 +51,9 @@
                                 </td>
                                 <td>
                                     {{ $doctor->hospital->name}}
+                                </td>
+                                <td>
+                                    <a href="{{ route('doctors.edit', $doctor->id) }}" class="btn btn-danger">Editar</a>
                                 </td>
                             </tr>
                             @endforeach

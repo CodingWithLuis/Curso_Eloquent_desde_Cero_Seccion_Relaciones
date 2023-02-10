@@ -43,7 +43,9 @@
                             <select class="form-select" name="hospital_id" id="hospital">
                                 <option value="" selected>Seleccione un hospital</option>
                                 @foreach ($hospitals as $id => $name)
-                                <option value="{{ $id }}"> {{ $name }}</option>
+                                <option value="{{ $id }}" {{  (old('hospital_id') == $id) ? 'selected' : '' }}>
+                                    {{ $name }}
+                                </option>
                                 @endforeach
                             </select>
                             @if ($errors->has('hospital_id'))

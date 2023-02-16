@@ -9,6 +9,16 @@
 
                 <div class="card-body">
 
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <form method="POST" action="{{ route('doctors.store') }}">
                         @csrf
                         <div class="mb-3">
@@ -54,6 +64,21 @@
                             </div>
                             @endif
                         </div>
+                        <div class="mb-3">
+                            <label for="specialties">Especialidades</label>
+                            <select name="specialties[]" id="specialties" class="form-control specialities" multiple="multiple">
+                                @foreach($specialties as $id => $specialty)
+                                <option value="{{ $id }}" {{ (in_array($id, old('specialties', [])) || isset($doctor) && $doctor->specialties->contains($id)) ? 'selected' : '' }}>
+                                    {{ $specialty }}
+                                </option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('specialties'))
+                            <div class="text-danger">
+                                {{ $errors->first('specialties') }}
+                            </div>
+                            @endif
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
@@ -66,6 +91,7 @@
 <script>
     $(document).ready(function() {
         $('#hospital').select2()
+        $('#specialties').select2()
     })
 </script>
 @endpush

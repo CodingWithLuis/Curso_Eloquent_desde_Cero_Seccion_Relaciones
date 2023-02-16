@@ -40,6 +40,13 @@ class StoreDoctorRequest extends FormRequest
             'hospital_id' => [
                 'required',
             ],
+            'specialties.*' => [
+                'integer'
+            ],
+            'specialties' => [
+                'array',
+                'required'
+            ]
         ];
     }
 }

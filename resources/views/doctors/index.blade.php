@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Listado de Doctores</div>
 
@@ -30,6 +30,9 @@
                                     Hospital
                                 </th>
                                 <th>
+                                    Especialidades
+                                </th>
+                                <th>
                                     Acciones
                                 </th>
                             </tr>
@@ -51,6 +54,11 @@
                                 </td>
                                 <td>
                                     {{ $doctor->hospital->name}}
+                                </td>
+                                <td>
+                                    @foreach ($doctor->specialties as $specialty)
+                                    <li>{{ $specialty->name }}</li>
+                                    @endforeach
                                 </td>
                                 <td>
                                     <a href="{{ route('doctors.edit', $doctor->id) }}" class="btn btn-danger">Editar</a>

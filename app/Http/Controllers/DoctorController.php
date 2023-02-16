@@ -6,6 +6,7 @@ use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
 use App\Models\Doctor;
 use App\Models\Hospital;
+use App\Models\Specialty;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -14,7 +15,7 @@ class DoctorController extends Controller
 
     public function index(): View
     {
-        $doctors = Doctor::with('hospital')->get();
+        $doctors = Doctor::with('hospital', 'specialties')->get();
 
         return view('doctors.index', compact('doctors'));
     }
@@ -23,12 +24,16 @@ class DoctorController extends Controller
     {
         $hospitals = Hospital::pluck('name', 'id');
 
-        return view('doctors.create', compact('hospitals'));
+        $specialties = Specialty::pluck('name', 'id');
+
+        return view('doctors.create', compact('hospitals', 'specialties'));
     }
 
     public function store(StoreDoctorRequest $request): RedirectResponse
     {
-        Doctor::create($request->validated());
+        $doctor = Doctor::create($request->validated());
+
+        $doctor->specialties()->attach($request->input('specialties', []));
 
         return redirect()->route('doctors.index');
     }

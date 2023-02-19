@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
         \App\Models\Profile::factory(5)->create();
         \App\Models\Specialty::factory(10)->create();
+        \App\Models\Country::factory(10)->create();
+        \App\Models\City::factory(100)->create();
 
         $this->call([
             HospitalSeeder::class,

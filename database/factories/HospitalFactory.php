@@ -17,7 +17,8 @@ class HospitalFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->title() . ' ' . fake()->name()
+            'name' => fake()->title() . ' ' . fake()->name(),
+            'city_id' => rand(1, 100)
         ];
     }
 }

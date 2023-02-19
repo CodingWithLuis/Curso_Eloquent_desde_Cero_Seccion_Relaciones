@@ -11,7 +11,7 @@ class Hospital extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'city_id'];
 
     public function doctors(): HasMany
     {

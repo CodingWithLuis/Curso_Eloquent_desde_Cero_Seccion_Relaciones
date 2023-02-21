@@ -56,8 +56,8 @@
                                     {{ $doctor->hospital->name}}
                                 </td>
                                 <td>
-                                    @foreach ($doctor->specialties as $specialty)
-                                    <li>{{ $specialty->name }}</li>
+                                    @foreach ($doctor->specialtiesAbroad as $specialty)
+                                    <li>{{ $specialty->name }} ({{ $specialty->doctor_specialty->created_at }})</li>
                                     @endforeach
                                 </td>
                                 <td>

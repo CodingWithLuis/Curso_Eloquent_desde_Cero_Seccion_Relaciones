@@ -15,7 +15,7 @@ class DoctorController extends Controller
 
     public function index(): View
     {
-        $doctors = Doctor::with('hospital', 'specialties')->get();
+        $doctors = Doctor::with('hospital', 'specialtiesAbroad')->get();
 
         return view('doctors.index', compact('doctors'));
     }

@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Doctor;
+use App\Models\Specialty;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,9 +28,12 @@ class DatabaseSeeder extends Seeder
             DoctorSeeder::class,
         ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $doctors = Doctor::all();
+
+        foreach ($doctors as $doctor) {
+            $specialties = Specialty::inRandomOrder()->take(rand(1, 3))->pluck('id');
+
+            $doctor->specialties()->attach($specialties, ['is_specialty_abroad' => rand(0, 1)]);
+        }
     }
 }

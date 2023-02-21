@@ -18,6 +18,8 @@ return new class extends Migration
         Schema::create('doctor_specialty', function (Blueprint $table) {
             $table->foreignIdFor(Doctor::class)->nullable()->constrained();
             $table->foreignIdFor(Specialty::class)->nullable()->constrained();
+            $table->timestamps();
+            $table->boolean('is_specialty_abroad')->default(0);
         });
     }
 

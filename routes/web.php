@@ -27,3 +27,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('users', UserController::class);
 Route::resource('doctors', DoctorController::class)->except('show', 'destroy');
 Route::resource('hospitals', HospitalController::class)->only('index');
+
+Route::get('/polymorphic/has_one', [App\Http\Controllers\PolymorphicController::class, 'indexHasOne'])
+    ->name('polymorphic.has_one');
+
+Route::get('/polymorphic/has_many', [App\Http\Controllers\PolymorphicController::class, 'indexHasMany'])
+    ->name('polymorphic.has_many');

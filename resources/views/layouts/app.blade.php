@@ -37,6 +37,12 @@
                 <a class="navbar-brand" href="{{ route('hospitals.index') }}">
                     Hospitales
                 </a>
+                <a class="navbar-brand" href="{{ route('polymorphic.has_one') }}">
+                    Has One Polymorphic
+                </a>
+                <a class="navbar-brand" href="{{ route('polymorphic.has_many') }}">
+                    Has Many Polymorphic
+                </a>
                 @endauth
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

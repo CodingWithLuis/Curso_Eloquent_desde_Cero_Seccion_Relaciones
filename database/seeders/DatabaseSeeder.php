@@ -47,10 +47,14 @@ class DatabaseSeeder extends Seeder
 
         foreach ($profiles as $profile) {
 
-            Image::create([
-                'url' => fake()->imageUrl(),
-                'imageable_id' => $profile->id,
-                'imageable_type' => 'App\Models\Profile'
+            // Image::create([
+            //     'url' => fake()->imageUrl(),
+            //     'imageable_id' => $profile->id,
+            //     'imageable_type' => 'App\Models\Profile'
+            // ]);
+
+            $profile->image()->create([
+                'url' => fake()->imageUrl()
             ]);
         }
 

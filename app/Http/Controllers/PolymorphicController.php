@@ -28,4 +28,9 @@ class PolymorphicController extends Controller
 
         return view('polymorphic.has_many', compact('hospitals', 'users'));
     }
+
+    public function indexManyMany(): View
+    {
+        return view('polymorphic.many_many');
+    }
 }

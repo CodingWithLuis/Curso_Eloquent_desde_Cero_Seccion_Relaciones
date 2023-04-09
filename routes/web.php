@@ -33,3 +33,6 @@ Route::get('/polymorphic/has_one', [App\Http\Controllers\PolymorphicController::
 
 Route::get('/polymorphic/has_many', [App\Http\Controllers\PolymorphicController::class, 'indexHasMany'])
     ->name('polymorphic.has_many');
+
+Route::get('/polymorphic/many_many', [App\Http\Controllers\PolymorphicController::class, 'indexManyMany'])
+    ->name('polymorphic.many_many');
